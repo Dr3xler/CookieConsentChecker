@@ -49,6 +49,7 @@ def load_without_addon(driver, websites):
 
 
 def close_driver_session(driver):
+    """This method will end the driver session and close all windows. Driver needs to be initialized again afterwards"""
     driver.quit()
 
 

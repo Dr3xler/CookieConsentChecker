@@ -8,7 +8,7 @@ driver = driver_h.webdriver_setup()
 try:
     wc.load_with_addon(driver, websites)
 except:
-    print('something went wrong')
+    print('ERROR: IN FIREFOX USAGE WITH ADDONS')
 finally:
     wc.close_driver_session(driver)
 
@@ -19,7 +19,7 @@ driver = driver_h.webdriver_setup()
 try:
     wc.load_without_addon(driver, websites)
 except:
-    print('something went wrong')
+    print('ERROR: IN VANILLA FIREFOX VERSION')
 finally:
     wc.close_driver_session(driver)
 
