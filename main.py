@@ -1,4 +1,3 @@
-import os
 import file_handling as file_h
 import driver_handling as driver_h
 import website_check as wc
@@ -6,27 +5,24 @@ import website_check as wc
 websites = file_h.website_reader()
 driver = driver_h.webdriver_setup()
 
+try:
+    wc.load_with_addon(driver, websites)
+except:
+    print('something went wrong')
+finally:
+    wc.close_driver_session(driver)
 
-wc.load_with_addon(driver, websites)
-wc.close_driver_session(driver)
 
+# driver need to be reloaded because we need a new session without addons
 driver = driver_h.webdriver_setup()
-wc.load_without_addon(driver, websites)
-wc.close_driver_session(driver)
+
+try:
+    wc.load_without_addon(driver, websites)
+except:
+    print('something went wrong')
+finally:
+    wc.close_driver_session(driver)
 
 
-
-
-
-''' loading addons for firefox to use with selenium for more than one addon:
-
-extensions = [
-    'jid1-KKzOGWgsW3Ao4Q@jetpack.xpi',
-    '',
-    ''
-]
-for extension in extensions:
-driver.install_addon(extension_dir + extension, temporary=True)
-'''
 
 
