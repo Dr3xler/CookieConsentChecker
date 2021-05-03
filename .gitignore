@@ -2,3 +2,5 @@ venv
 .idea
 geckodriver.log
 __pycache__
+data/save/with_addon
+data/save/without_addon
