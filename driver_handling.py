@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.firefox.webdriver import WebDriver
 
 
 def webdriver_setup():
@@ -7,3 +8,4 @@ def webdriver_setup():
     driver = webdriver.Firefox(executable_path=r"webdriver/geckodriver")
 
     return driver
+

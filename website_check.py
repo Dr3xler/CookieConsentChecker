@@ -1,6 +1,8 @@
 import os
 import json
 import shutil
+import time
+
 import cookie_compare
 
 
@@ -42,6 +44,8 @@ def load_with_addon(driver, websites):
     for website in websites:
         name = website.split('www.')[1]
         driver.get(website)
+        driver.execute_script("return document.readyState")
+        time.sleep(5)
 
         cookies_addons = driver.get_cookies()
         cookies_dict = {}
@@ -80,6 +84,8 @@ def load_without_addon(driver, websites):
     for website in websites:
         name = website.split('www.')[1]
         driver.get(website)
+        driver.execute_script("return document.readyState")
+        time.sleep(5)
 
         cookies_vanilla = driver.get_cookies()
         cookies_dict = {}
