@@ -37,9 +37,6 @@ def compare(websites):
             print(IOError)
             print('---')
 
-
-
-
     print('---------------------------------------')
     print('%s cookie(s) is/are the same as before' % different_cookies_count)
     print('---------------------------------------')
