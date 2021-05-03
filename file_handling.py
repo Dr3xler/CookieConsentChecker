@@ -1,3 +1,5 @@
+import json
+
 
 def website_reader():
     """This method will read the websites.txt file into a list"""
@@ -8,3 +10,4 @@ def website_reader():
     websites = [x.strip() for x in websites]
 
     return websites
+

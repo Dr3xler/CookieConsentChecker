@@ -1,9 +1,9 @@
 import os
 import json
 import shutil
+import cookie_compare
 
 
-# TODO: Add ability to save cookies to both methods
 # TODO: Maybe save cookies to global variable to compare them in another function without saving them?
 
 
@@ -50,15 +50,15 @@ def load_with_addon(driver, websites):
         for cookie in cookies_addons:
             cookies_dict = cookie
 
-            print('data/save/with_addon/%s/%s_%s.txt' % (name, name, cookiecount))
+            print('data/save/with_addon/%s/%s_%s.json' % (name, name, cookiecount))
             print(cookies_dict)
 
             # creates the website dir
             if not os.path.exists('data/save/with_addon/%s/' % name):
                 os.mkdir('data/save/with_addon/%s/' % name)
             # saves the cookies into the website dir
-            with open('data/save/with_addon/%s/%s_%s.txt' % (name, name, cookiecount), 'w') as file:
-                json.dump(cookies_dict, file)
+            with open('data/save/with_addon/%s/%s_%s.json' % (name, name, cookiecount), 'w') as file:
+                json.dump(cookies_dict, file, sort_keys=True)
 
             cookiecount += 1
 
@@ -88,15 +88,15 @@ def load_without_addon(driver, websites):
         for cookie in cookies_vanilla:
             cookies_dict = cookie
 
-            print('data/save/without_addon/%s/%s_%s.txt' % (name, name, cookiecount))
+            print('data/save/without_addon/%s/%s_%s.json' % (name, name, cookiecount))
             print(cookies_dict)
 
             # creates the website dir
             if not os.path.exists('data/save/without_addon/%s/' % name):
                 os.mkdir('data/save/without_addon/%s/' % name)
             # saves the cookies into the website dir
-            with open('data/save/without_addon/%s/%s_%s.txt' % (name, name, cookiecount), 'w') as file:
-                json.dump(cookies_dict, file)
+            with open('data/save/without_addon/%s/%s_%s.json' % (name, name, cookiecount), 'w') as file:
+                json.dump(cookies_dict, file, sort_keys=True)
 
             cookiecount += 1
 
@@ -106,6 +106,3 @@ def close_driver_session(driver):
     driver.quit()
 
 
-# to load json file
-# with open('data.json', 'r') as fp:
-#     data = json.load(fp)
