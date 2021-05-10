@@ -1,7 +1,5 @@
-import file_handling as file_h
-import driver_handling as driver_h
-import idcac_poc
-import collect_websites as collect
+from core import file_handling as file_h, driver_handling as driver_h
+from website_handling import collect_websites as collect
 
 websites = file_h.website_reader_cookie_websites()
 driver = driver_h.webdriver_setup()

@@ -1,8 +1,6 @@
-import file_handling as file_h
-import driver_handling as driver_h
-import website_check as wc
-import cookie_compare
-
+from core import file_handling as file_h, driver_handling as driver_h
+from website_handling import website_check as wc
+from cookie_handling import cookie_compare
 
 websites = file_h.website_reader()
 driver = driver_h.webdriver_setup()
