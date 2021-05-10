@@ -9,6 +9,12 @@ def generate_website_list(driver, websites):
 
     cookie_exists_list = []
     list_count = 0
+
+    # the extension directory needs to be the one of your local machine
+    extension_dir = os.getenv("HOME") + "/.mozilla/firefox/7ppp44j6.default-release/extensions/"
+
+    driver.install_addon(extension_dir + 'jid1-KKzOGWgsW3Ao4Q@jetpack.xpi', temporary=True)
+
     for website in websites:
         name = website.split('www.')[1]
         try:
@@ -33,7 +39,7 @@ def generate_website_list(driver, websites):
         else:
             continue
 
-    cookie_websites = open("data/cookie_websites.txt", "w")
+    cookie_websites = open("data/cookie_addon_success.txt", "w")
 
     for line in cookie_exists_list:
         cookie_websites.write(line + "\n")
