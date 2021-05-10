@@ -29,9 +29,9 @@ def load_with_addon(driver, websites):
     print('creating dir for cookies with addon...')
 
     # checks if cookie dir already exists, creates an empty dir.
-    if len(os.listdir('../data/save/with_addon/')) != 0:
-        shutil.rmtree('../data/save/with_addon/')
-        os.mkdir('../data/save/with_addon/')
+    if len(os.listdir('data/save/with_addon/')) != 0:
+        shutil.rmtree('data/save/with_addon/')
+        os.mkdir('data/save/with_addon/')
 
     print('saving cookies in firefox with addons ...')
 
@@ -74,9 +74,9 @@ def load_without_addon(driver, websites):
     print('creating dir for cookies in vanilla...')
 
     # checks if cookie dir already exists, creates an empty dir.
-    if len(os.listdir('../data/save/without_addon/')) != 0:
-        shutil.rmtree('../data/save/without_addon/')
-        os.mkdir('../data/save/without_addon')
+    if len(os.listdir('data/save/without_addon/')) != 0:
+        shutil.rmtree('data/save/without_addon/')
+        os.mkdir('data/save/without_addon')
 
     print('saving cookies in firefox without addons ...')
 

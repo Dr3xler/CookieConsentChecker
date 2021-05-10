@@ -33,7 +33,7 @@ def generate_website_list(driver, websites):
         else:
             continue
 
-    cookie_websites = open("../data/cookie_websites.txt", "w")
+    cookie_websites = open("data/cookie_websites.txt", "w")
 
     for line in cookie_exists_list:
         cookie_websites.write(line + "\n")
