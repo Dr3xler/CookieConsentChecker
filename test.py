@@ -6,4 +6,4 @@ driver = driver_h.webdriver_setup()
 
 #idcac_poc.addon_check(driver, websites)
 
-collect.generate_website_list(driver, websites)
+collect.generate_success_list(driver, websites)

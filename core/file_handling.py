@@ -30,7 +30,7 @@ def website_reader_cookie_websites():
     """This method will read the websites.txt file into a list"""
     # reading txt file for websites used by selenium
 
-    with open('../data/cookie_websites.txt', "r") as f:
+    with open('data/cookie_websites.txt', "r") as f:
         websites = f.readlines()
     websites = [x.strip() for x in websites]
 
