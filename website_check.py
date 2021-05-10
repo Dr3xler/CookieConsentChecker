@@ -6,6 +6,8 @@ import time
 import cookie_compare
 
 
+# TODO: (stackoverflow.com/question/17136514/how-to-get-3rd-party-cookies)
+#  stackoverflow.com/questions/22200134/make-selenium-grab-all-cookies, add the selenium, phantomjs part to catch ALL cookies
 # TODO: Maybe save cookies to global variable to compare them in another function without saving them?
 
 
