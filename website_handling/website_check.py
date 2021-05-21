@@ -2,6 +2,9 @@ import os
 import json
 import shutil
 import time
+from pathlib import Path
+from sys import platform
+
 
 # TODO: (stackoverflow.com/question/17136514/how-to-get-3rd-party-cookies)
 #  stackoverflow.com/questions/22200134/make-selenium-grab-all-cookies, add the selenium, phantomjs part to catch ALL cookies
@@ -36,9 +39,17 @@ def load_with_addon(driver, websites):
     print('saving cookies in firefox with addons ...')
 
     # the extension directory needs to be the one of your local machine
-    extension_dir = os.getenv("HOME") + "/.mozilla/firefox/7ppp44j6.default-release/extensions/"
+    # linux
+    if platform == "linux":
+        extension_dir = os.getenv("HOME") + "/.mozilla/firefox/7ppp44j6.default-release/extensions/"
+        driver.install_addon(extension_dir + 'jid1-KKzOGWgsW3Ao4Q@jetpack.xpi', temporary=True)
+    # windows
+    if platform == "win32":
+        extension_dir = str(
+            Path.home()) + "/AppData/Roaming/Mozilla/Firefox/Profiles/shdzeteb.default-release/extensions/"
+        print(extension_dir)
 
-    driver.install_addon(extension_dir + 'jid1-KKzOGWgsW3Ao4Q@jetpack.xpi', temporary=True)
+        driver.install_addon(extension_dir + 'jid1-KKzOGWgsW3Ao4Q@jetpack.xpi', temporary=True)
 
     for website in websites:
         name = website.split('www.')[1]

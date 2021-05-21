@@ -1,7 +1,6 @@
-import time
-import shutil
 import os
-import json
+from sys import platform
+from pathlib import Path
 
 
 def generate_website_list(driver, websites):
@@ -47,10 +46,17 @@ def generate_success_list(driver, websites):
     cookie_exists_list = []
     list_count = 0
 
+    print(platform)
     # the extension directory needs to be the one of your local machine
-    extension_dir = os.getenv("HOME") + "/.mozilla/firefox/7ppp44j6.default-release/extensions/"
-
-    driver.install_addon(extension_dir + 'jid1-KKzOGWgsW3Ao4Q@jetpack.xpi', temporary=True)
+    #linux
+    if platform == "linux":
+        extension_dir = os.getenv("HOME") + "/.mozilla/firefox/7ppp44j6.default-release/extensions/"
+        driver.install_addon(extension_dir + 'jid1-KKzOGWgsW3Ao4Q@jetpack.xpi', temporary=True)
+    #windows
+    if platform == "win32":
+        extension_dir = str(Path.home()) + "/AppData/Roaming/Mozilla/Firefox/Profiles/shdzeteb.default-release/extensions/"
+        print(extension_dir)
+        driver.install_addon(extension_dir + 'jid1-KKzOGWgsW3Ao4Q@jetpack.xpi', temporary=True)
 
     for website in websites:
         name = website.split('www.')[1]
